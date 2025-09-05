@@ -26,7 +26,9 @@ def init_db():
     """)
     conn.commit()
     conn.close()
-
+@app.route('/')
+def home_view():
+    return jsonify({"message": "Welcome!"})
 @app.route("/api/products", methods=["POST"])
 def add_product():
     name = request.form.get("name")
